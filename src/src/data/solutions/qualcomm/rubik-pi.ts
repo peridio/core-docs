@@ -7,7 +7,7 @@ export const data: SolutionData = {
   keywords:
     'qualcomm rubik pi, rb3 gen 2, edge ai, robotics, qcs6490, device management, ota updates, yocto, embedded linux',
   ogImage: '/img/rubik-pi.jpeg',
-  canonicalUrl: 'https://docs.peridio.com/solutions/qualcomm/rubik-pi',
+  canonicalUrl: 'https://docs.core.peridio.com/solutions/qualcomm/rubik-pi',
 
   hero: {
     title: 'Accelerate Edge AI & Robotics with Qualcomm Rubik Pi',

@@ -7,7 +7,7 @@ export const data: SolutionData = {
   keywords:
     'stm32mp257f-dk, stmicroelectronics, device management, ota updates, yocto, embedded linux, industrial iot, edge ai, dual core cortex-a35',
   ogImage: '/img/stmicro_STM32MP257F-DK.png',
-  canonicalUrl: 'https://docs.peridio.com/solutions/stmicroelectronics/stm32mp157d-dk',
+  canonicalUrl: 'https://docs.core.peridio.com/solutions/stmicroelectronics/stm32mp157d-dk',
 
   hero: {
     title: 'Skip 18 Months of STM32MP Development',

@@ -6,8 +6,9 @@ const { themes } = require('prism-react-renderer')
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Docs',
-  url: 'https://docs.peridio.com',
+  url: 'https://docs.core.peridio.com',
   baseUrl: '/',
+  noIndex: true,
   onBrokenLinks: 'throw',
   onBrokenAnchors: 'throw',
   markdown: {

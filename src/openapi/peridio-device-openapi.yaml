@@ -437,7 +437,7 @@ components:
   securitySchemes:
     MutualTLS:
       type: mutualTLS
-      description: The provided client certificate must be signed by a [CA certificate](https://docs.peridio.com/reference/ca-certificates) registered with Peridio.
+      description: The provided client certificate must be signed by a [CA certificate](https://docs.core.peridio.com/reference/ca-certificates) registered with Peridio.
   schemas:
     port-ranges:
       type: array

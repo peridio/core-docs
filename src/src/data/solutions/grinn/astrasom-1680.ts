@@ -7,7 +7,7 @@ export const data: SolutionData = {
   keywords:
     'grinn astrasom-1680, astra sl1680, edge ai vision, smart camera, npu, dual camera, avocado os, cra compliance, ota updates',
   ogImage: '/img/grinn-astra-som-1680.png',
-  canonicalUrl: 'https://docs.peridio.com/solutions/grinn/astrasom-1680',
+  canonicalUrl: 'https://docs.core.peridio.com/solutions/grinn/astrasom-1680',
 
   hero: {
     title: 'Edge AI Vision from Prototype to Production on Grinn AstraSOM-1680',

@@ -7,7 +7,7 @@ export const data: SolutionData = {
   keywords:
     'qualcomm iq9, qcs8550, flagship edge ai, 45 tops, automotive ai, premium edge computing, device management, ota updates',
   ogImage: '/img/iq9.jpeg',
-  canonicalUrl: 'https://docs.peridio.com/solutions/qualcomm/iq9',
+  canonicalUrl: 'https://docs.core.peridio.com/solutions/qualcomm/iq9',
 
   hero: {
     title: 'Premium Edge AI Performance with Qualcomm IQ9',

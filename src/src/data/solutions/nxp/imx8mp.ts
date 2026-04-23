@@ -7,7 +7,7 @@ export const data: SolutionData = {
   keywords:
     'nxp imx8mp, i.mx 8m plus, industrial vision, edge ai camera, npu, dual camera, real-time processing, device management',
   ogImage: '/img/nxp-imx8mp.jpg',
-  canonicalUrl: 'https://docs.peridio.com/solutions/nxp/imx8mp',
+  canonicalUrl: 'https://docs.core.peridio.com/solutions/nxp/imx8mp',
 
   hero: {
     title: 'Unlock Industrial Vision & Edge AI with NXP i.MX 8M Plus',

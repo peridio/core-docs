@@ -7,7 +7,7 @@ export const icam540Data: SolutionData = {
   keywords:
     'advantech icam-540, industrial ai camera, nvidia jetson orin nx, sony imx334, edge ai, computer vision, camnavi sdk, deepstream, fleet management',
   ogImage: '/img/icam540.png',
-  canonicalUrl: 'https://docs.peridio.com/solutions/advantech/icam-540',
+  canonicalUrl: 'https://docs.core.peridio.com/solutions/advantech/icam-540',
 
   hero: {
     title: 'All-in-One AI Vision from Development to Production',

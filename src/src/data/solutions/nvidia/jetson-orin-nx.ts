@@ -7,7 +7,7 @@ export const data: SolutionData = {
   keywords:
     'nvidia jetson orin nx, device management, ota updates, yocto, embedded linux, industrial ai, robotics, fleet management, autonomous systems',
   ogImage: '/img/nvidia-jetson-orin.jpg',
-  canonicalUrl: 'https://docs.peridio.com/solutions/nvidia/jetson-orin-nx',
+  canonicalUrl: 'https://docs.core.peridio.com/solutions/nvidia/jetson-orin-nx',
 
   hero: {
     title: 'Fast-Track Your Orin NX Production Deployment',
