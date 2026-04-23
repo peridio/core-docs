@@ -107,39 +107,13 @@ const config = {
         items: [
           {
             type: 'dropdown',
-            label: 'Documentation',
-            to: '/overview',
-            position: 'left',
-            items: [
-              {
-                type: 'html',
-                value:
-                  '<div class="dropdown__menu--grid-container"><div class="dropdown__menu--column"><div class="dropdown__menu--section-title">GETTING STARTED</div><a href="/avocado-linux/guides/getting-started" class="dropdown__menu--link">Getting started</a><a href="/avocado-linux/guides/hardware-in-the-loop" class="dropdown__menu--link">Hardware in the Loop</a><a href="/avocado-linux/guides/sideloading" class="dropdown__menu--link">Sideload an Update</a></div><div class="dropdown__menu--column"><div class="dropdown__menu--section-title">CORE PLATFORMS</div><a href="/overview" class="dropdown__menu--link">Overview</a><a href="/avocado-linux/overview" class="dropdown__menu--link">Avocado OS</a><a href="/peridio-core/overview" class="dropdown__menu--link">Peridio Core</a></div><div class="dropdown__menu--column"><div class="dropdown__menu--section-title">RESOURCES</div><a href="/peridio-core/reference/remote-access/tunnels" class="dropdown__menu--link">Remote Access Tunnels</a><a href="/peridio-core/reference/integration-management/webhooks" class="dropdown__menu--link">Webhooks</a><a href="/peridio-core/reference/device-management/ca-certificates" class="dropdown__menu--link">CA Certificates</a></div></div>',
-              },
-            ],
-          },
-          {
-            type: 'dropdown',
-            label: 'Featured Hardware',
-            position: 'left',
-            className: 'featured-hardware-dropdown',
-            items: [
-              {
-                type: 'html',
-                value:
-                  '<div class="dropdown__menu--grid-container dropdown__menu--hardware"><div class="dropdown__menu--column"><div class="dropdown__menu--section-title">SEMICONDUCTORS &amp; MODULES</div><a href="/solutions/nxp/imx8mp" class="dropdown__menu--link">NXP i.MX 8M Plus</a><a href="/solutions/raspberry-pi/raspberry-pi-5" class="dropdown__menu--link">Raspberry Pi 5</a><a href="/solutions/nvidia/jetson-orin-nano" class="dropdown__menu--link">NVIDIA Jetson</a><a href="/solutions/grinn/astrasom-1680" class="dropdown__menu--link">Grinn AstraSOM-1680</a></div><div class="dropdown__menu--column"><div class="dropdown__menu--section-title">PRODUCTION READY</div><a href="/solutions/advantech/icam-540" class="dropdown__menu--link">Advantech ICAM-540</a><a href="/solutions/onlogic/fr201" class="dropdown__menu--link">OnLogic FR201</a><a href="/solutions/seeed/reterminal" class="dropdown__menu--link">Seeed reTerminal</a></div></div><div style="margin-top: 1.75rem; text-align: right;"><a href="/hardware/support-matrix" style="font-size: 0.85rem; color: #666; opacity: 0.9; text-decoration: none; transition: opacity 0.2s ease;" onmouseover="this.style.opacity=\'1\'; this.style.color=\'#333\';" onmouseout="this.style.opacity=\'0.9\'; this.style.color=\'#666\';">View all supported hardware →</a></div>',
-              },
-            ],
-          },
-          {
-            type: 'dropdown',
             label: 'Tools',
             position: 'right',
             items: [
               {
                 type: 'html',
                 value:
-                  '<div class="dropdown__menu--grid-container dropdown__menu--hardware"><div class="dropdown__menu--column"><div class="dropdown__menu--section-title">AVOCADO LINUX</div><a href="/avocado-linux/tools/avocado-cli/overview" class="dropdown__menu--link">Avocado CLI</a><a href="/avocado-linux/tools/avocado-control" class="dropdown__menu--link">Avocado Control</a><a href="/avocado-linux/tools/meta-avocado" class="dropdown__menu--link">Meta Avocado</a></div><div class="dropdown__menu--column"><div class="dropdown__menu--section-title">PERIDIO CORE</div><a href="/peridio-core/tools/admin-api" class="dropdown__menu--link">Admin API</a><a href="/peridio-core/tools/rust-sdk" class="dropdown__menu--link">Admin API Rust SDK</a><a href="/peridio-core/tools/peridio-cli/overview" class="dropdown__menu--link">Peridio CLI</a><a href="/peridio-core/tools/peridio-daemon/overview" class="dropdown__menu--link">Peridio Daemon</a><a href="/peridio-core/tools/device-api" class="dropdown__menu--link">Device API</a></div></div>',
+                  '<div class="dropdown__menu--grid-container dropdown__menu--hardware"><div class="dropdown__menu--column"><div class="dropdown__menu--section-title">PERIDIO CORE</div><a href="/peridio-core/tools/admin-api" class="dropdown__menu--link">Admin API</a><a href="/peridio-core/tools/rust-sdk" class="dropdown__menu--link">Admin API Rust SDK</a><a href="/peridio-core/tools/peridio-cli/overview" class="dropdown__menu--link">Peridio CLI</a><a href="/peridio-core/tools/peridio-daemon/overview" class="dropdown__menu--link">Peridio Daemon</a><a href="/peridio-core/tools/device-api" class="dropdown__menu--link">Device API</a></div></div>',
               },
             ],
           },

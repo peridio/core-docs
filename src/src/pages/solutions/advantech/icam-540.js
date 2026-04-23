@@ -1,7 +1,0 @@
-import React from 'react'
-import SolutionLayout from '@site/src/components/solutions/SolutionLayout'
-import { icam540Data } from '@site/src/data/solutions/advantech/icam-540'
-
-export default function ICAM540SolutionNew() {
-  return <SolutionLayout {...icam540Data} />
-}

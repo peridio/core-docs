@@ -1,7 +1,0 @@
-import React from 'react'
-import SolutionLayout from '@site/src/components/solutions/SolutionLayout'
-import { frdm93Data } from '@site/src/data/solutions/nxp/frdm-93'
-
-export default function FRDM93Solution() {
-  return <SolutionLayout {...frdm93Data} />
-}

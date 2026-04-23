@@ -1,7 +1,0 @@
-import React from 'react'
-import SolutionLayout from '@site/src/components/solutions/SolutionLayout'
-import { imx8mpData } from '@site/src/data/solutions/nxp/imx8mp'
-
-export default function IMX8MPSolution() {
-  return <SolutionLayout {...imx8mpData} />
-}
