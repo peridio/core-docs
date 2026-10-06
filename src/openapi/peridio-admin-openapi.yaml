@@ -1697,6 +1697,7 @@ paths:
         |Key|Operators|Value|
         |-|-|-|
         |`cohort_prn`|`:`|string|
+        |`connected`|`:`|`true` or `false`|
         |`description`|`:`, `~`|string|
         |`identifier`|`:`, `~`|string|
         |`inserted_at`|`:`, `>`, `>=`, `<`, `<=`|date-time|
@@ -3587,6 +3588,8 @@ components:
       properties:
         cohort_prn:
           $ref: "#/components/schemas/cohort-prn"
+        connected:
+          $ref: "#/components/schemas/device-connected"
         description:
           oneOf:
             - type: "null"
@@ -3686,6 +3689,13 @@ components:
       example: "some description"
     device-healthy:
       type: boolean
+    device-connected:
+      description: |
+        Whether the device currently has an active connection to Peridio. Derived from the device's connect and disconnect events, so it can trail a real connection change by a few seconds.
+
+        Unlike `last_connected_at`, which only records when the device last connected, this reflects whether it is connected now.
+      type: boolean
+      example: true
     device-quarantined:
       type: boolean
       example: false
