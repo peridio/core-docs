@@ -2488,6 +2488,7 @@ paths:
 
         |Key|Operators|Value|
         |-|-|-|
+        |`disabled_at`|`:`, `>`, `>=`, `<`, `<=`|date-time|
         |`inserted_at`|`:`, `>`, `>=`, `<`, `<=`|date-time|
         |`updated_at`|`:`, `>`, `>=`, `<`, `<=`|date-time|
       tags:
@@ -2579,7 +2580,9 @@ paths:
 
         Disabling a user who is already disabled returns them unchanged, keeping the original `disabled_at`.
 
-        Returns `404` if the user is not a member of your organization, and `409` if they are its last active member who can manage users: the organization's owner, or a member with the `user_update` permission.
+        Disabling a root member requires you to be a root member of the organization yourself, or Peridio staff. Otherwise it returns `403`.
+
+        Returns `404` if the user is not a member of your organization, and `409` if they are its last active member who can manage users: a root member, or a member with the `user_update` permission.
       tags:
         - "Users"
       responses:
@@ -4829,8 +4832,8 @@ components:
           format: date-time
         prn:
           $ref: "#/components/schemas/user-prn"
-        role:
-          $ref: "#/components/schemas/user-role"
+        root:
+          $ref: "#/components/schemas/user-root"
         updated_at:
           type: string
           format: date-time
@@ -4857,17 +4860,11 @@ components:
       allOf:
         - $ref: "#/components/schemas/prn"
         - example: "prn:1:user:b3f1f699-3bc8-4c77-bda2-b974595d5e3f"
-    user-role:
+    user-root:
       description: |
-        The user's role in the organization, or `null` if they have none.
-      oneOf:
-        - type: "null"
-        - type: string
-          enum:
-            - admin
-            - delete
-            - write
-            - read
+        Whether the user is a root member of the organization. Root members can manage all users and permissions.
+      type: boolean
+      example: false
     user-username:
       type: string
     vcs-identifier:
