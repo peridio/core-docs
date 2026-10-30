@@ -2471,6 +2471,44 @@ paths:
                         properties:
                           state:
                             examples: ["closed"]
+  /users:
+    parameters:
+      - $ref: "#/components/parameters/x-api-version"
+    get:
+      operationId: list-users
+      summary: List users
+      description: |
+        List the users in your organization, including disabled users.
+
+        Requires the `user_list` permission.
+
+        **Search**
+
+        This resource has the following searchable fields.
+
+        |Key|Operators|Value|
+        |-|-|-|
+        |`disabled_at`|`:`, `>`, `>=`, `<`, `<=`|date-time|
+        |`inserted_at`|`:`, `>`, `>=`, `<`, `<=`|date-time|
+        |`updated_at`|`:`, `>`, `>=`, `<`, `<=`|date-time|
+      tags:
+        - "Users"
+      parameters:
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/order"
+        - $ref: "#/components/parameters/search"
+        - $ref: "#/components/parameters/page"
+      responses:
+        "200":
+          description: Ok.
+          content:
+            application/json:
+              schema:
+                properties:
+                  users:
+                    $ref: "#/components/schemas/array-of-users"
+                  next_page:
+                    $ref: "#/components/schemas/next-page"
   /users/auth:
     parameters:
       - $ref: "#/components/parameters/x-api-version"
@@ -2524,6 +2562,68 @@ paths:
                 properties:
                   data:
                     $ref: "#/components/schemas/user-me"
+  /users/{user_prn}/disable:
+    parameters:
+      - $ref: "#/components/parameters/x-api-version"
+      - name: user_prn
+        in: path
+        required: true
+        schema:
+          $ref: "#/components/schemas/user-prn"
+    post:
+      operationId: disable-a-user
+      summary: Disable a user
+      description: |
+        Disable a user in your organization. A disabled user stays a member and keeps their permissions, but their API keys and web console sessions are denied access to the organization. Their access to other organizations is not affected. The change can take up to a minute to reach every Peridio server.
+
+        Requires the `user_update` permission.
+
+        Disabling a user who is already disabled returns them unchanged, keeping the original `disabled_at`.
+
+        Disabling a root member requires you to be a root member of the organization yourself, or Peridio staff. Otherwise it returns `403`.
+
+        Returns `404` if the user is not a member of your organization, and `409` if they are its last active member who can manage users: a root member, or a member with the `user_update` permission.
+      tags:
+        - "Users"
+      responses:
+        "200":
+          description: Ok.
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    $ref: "#/components/schemas/user"
+  /users/{user_prn}/enable:
+    parameters:
+      - $ref: "#/components/parameters/x-api-version"
+      - name: user_prn
+        in: path
+        required: true
+        schema:
+          $ref: "#/components/schemas/user-prn"
+    post:
+      operationId: enable-a-user
+      summary: Enable a user
+      description: |
+        Re-enable a disabled user in your organization. Their permissions apply again as they were before they were disabled, so nothing needs to be granted again. The change can take up to a minute to reach every Peridio server.
+
+        Requires the `user_update` permission.
+
+        Enabling a user who is not disabled returns them unchanged.
+
+        Returns `404` if the user is not a member of your organization.
+      tags:
+        - "Users"
+      responses:
+        "200":
+          description: Ok.
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    $ref: "#/components/schemas/user"
   /web-console-shells:
     parameters:
       - $ref: "#/components/parameters/x-api-version"
@@ -3051,6 +3151,10 @@ components:
       type: array
       items:
         $ref: "#/components/schemas/tunnel"
+    array-of-users:
+      type: array
+      items:
+        $ref: "#/components/schemas/user"
     array-of-webhooks:
       type: array
       items:
@@ -4715,6 +4819,33 @@ components:
       allOf:
         - $ref: "#/components/schemas/prn"
         - example: "prn:1:be4d30b4-de6b-47cd-85ea-a75e23fd63ef:tunnel:b3f1f699-3bc8-4c77-bda2-b974595d5e3f"
+    user:
+      type: object
+      properties:
+        disabled_at:
+          $ref: "#/components/schemas/user-disabled-at"
+        email:
+          $ref: "#/components/schemas/email"
+        inserted_at:
+          description: When the user was added to the organization.
+          type: string
+          format: date-time
+        prn:
+          $ref: "#/components/schemas/user-prn"
+        root:
+          $ref: "#/components/schemas/user-root"
+        updated_at:
+          type: string
+          format: date-time
+        username:
+          $ref: "#/components/schemas/user-username"
+    user-disabled-at:
+      description: |
+        When the user was disabled in the organization, or `null` if they are not disabled.
+      oneOf:
+        - type: "null"
+        - type: string
+          format: date-time
     user-me:
       allOf:
         - type: object
@@ -4729,6 +4860,11 @@ components:
       allOf:
         - $ref: "#/components/schemas/prn"
         - example: "prn:1:user:b3f1f699-3bc8-4c77-bda2-b974595d5e3f"
+    user-root:
+      description: |
+        Whether the user is a root member of the organization. Root members can manage all users and permissions.
+      type: boolean
+      example: false
     user-username:
       type: string
     vcs-identifier:
