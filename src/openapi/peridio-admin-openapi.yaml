@@ -2612,6 +2612,8 @@ paths:
 
         Enabling a user who is not disabled returns them unchanged.
 
+        Enabling a root member requires you to be a root member of the organization yourself, or Peridio staff. Otherwise it returns `403`.
+
         Returns `404` if the user is not a member of your organization.
       tags:
         - "Users"
