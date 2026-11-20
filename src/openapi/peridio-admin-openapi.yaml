@@ -1866,6 +1866,72 @@ paths:
                       The bundle associated with `source`.
                   manifest:
                     $ref: "#/components/schemas/manifest"
+  /devices/{device_prn}/reboot:
+    parameters:
+      - $ref: "#/components/parameters/x-api-version"
+      - name: device_prn
+        in: path
+        required: true
+        schema:
+          description: The PRN of the device to reboot.
+          $ref: "#/components/schemas/device-prn"
+    post:
+      security:
+        - api_key: []
+      operationId: devices-reboot
+      summary: Reboot device
+      description: |
+        Sends a reboot request to a connected device. This is the same request as the Reboot button in the web console.
+
+        - The device must be connected. If the device is not connected, the response is `409` and nothing is queued. Send the request again when the device is connected.
+        - A `202` response means that the request was sent to the device. It does not confirm that the device rebooted. The device can disconnect after the check and before it gets the request.
+        - You must have the device update permission.
+
+        **Warning:** This endpoint does not check what the device is doing. A reboot during a firmware or bundle install can stop the install and leave the device in a bad state. Check the device status before you reboot it.
+      tags:
+        - "Devices"
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+      responses:
+        "202":
+          description: Accepted. The reboot request was sent to the device.
+          content:
+            application/json:
+              schema:
+                properties:
+                  reboot:
+                    properties:
+                      device_prn:
+                        $ref: "#/components/schemas/device-prn"
+                      requested_at:
+                        type: string
+                        format: date-time
+                        description: When the request was sent to the device.
+        "403":
+          description: You do not have the device update permission for this device.
+        "404":
+          description: The device does not exist.
+        "409":
+          description: The device is not connected. The request was not sent.
+          content:
+            application/json:
+              schema:
+                properties:
+                  code:
+                    enum:
+                      - "device_not_connected"
+                  status:
+                    enum:
+                      - "conflict"
+                  errors:
+                    properties:
+                      detail:
+                        type: string
   /events:
     parameters:
       - $ref: "#/components/parameters/x-api-version"
